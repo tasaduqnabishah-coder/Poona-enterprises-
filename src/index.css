@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff5a5f; /* Airbnb-style soft red/coral */
+  --color-primary-dark: #e34c51;
+  --color-accent: #222222;
+  --color-slate-50: #f7f7f7;
+  --color-slate-100: #ebebeb;
+  --color-slate-900: #222222;
+  --color-slate-950: #111111;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%; /* #222222 */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+    --primary: 359 100% 68%; /* #ff5a5f */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 13%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 13%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 92%;
+    --input: 0 0% 92%;
+    --ring: 359 100% 68%;
+    --radius: 0.5rem;
+  }
+
+  /* Force light mode for now as per user request */
+  .dark {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+    --primary: 359 100% 68%;
+    --primary-foreground: 0 0% 100%;
+    --border: 0 0% 92%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-slate-100;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight font-bold;
+  }
+}
+
+@layer utilities {
+  .glass-light {
+    @apply bg-white/90 backdrop-blur-md border border-white/20;
+  }
+  
+  .card-minimal {
+    @apply bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Scrollbar - Light */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-slate-50;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+}

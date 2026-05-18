@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://poona-enterprises.vercel.app/sitemap.xml
