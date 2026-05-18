@@ -58,6 +58,7 @@ export default function Home() {
           "id": _id,
           title,
           price,
+          rentalPrices,
           category,
           type,
           "imageUrl": image.asset->url,
