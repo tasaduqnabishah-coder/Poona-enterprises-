@@ -79,7 +79,7 @@ export default function Contact() {
             >
               <div className="flex items-center gap-8">
                 <div className="bg-white/10 p-5 rounded-2xl text-primary">
-                  <MessageSquare size={32} />
+                  <MessageSquare size={32} />s   
                 </div>
                 <div>
                   <h3 className="text-2xl font-serif font-bold italic">Chat with an Expert</h3>
