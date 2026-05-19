@@ -14,7 +14,7 @@ export default function SEO({
   description = "Affordable and premium electronics and furniture rentals in Pune. We offer ACs, washing machines, refrigerators, and stylish furniture on rent. Expert repair services available.",
   keywords = "rent electronics pune, furniture rental pune, ac on rent pune, fridge repair pune, washing machine repair pune, second hand electronics pune",
   image = "/hero-showcase.png",
-  url = "https://poona-enterprises.vercel.app",
+  url = "https://poona-enterprises-self.vercel.app",
   type = "website"
 }: SEOProps) {
   const siteTitle = title.includes("Poona Enterprises") ? title : `${title} | Poona Enterprises`;

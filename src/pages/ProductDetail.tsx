@@ -179,6 +179,7 @@ Please share details about availability and delivery.`;
         title={`${product.title} | Poona Enterprises`}
         description={product.description.substring(0, 150) + '...'}
         image={product.imageUrl}
+        url={window.location.href}
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
