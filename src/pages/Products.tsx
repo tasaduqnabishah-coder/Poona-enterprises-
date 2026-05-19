@@ -35,7 +35,7 @@ export default function Products() {
           "imageUrl": image.asset->url,
           description
         }`;
-        
+
         const data = await client.fetch(query);
         setProducts(data.map((p: any) => ({
           id: p._id,
@@ -59,11 +59,11 @@ export default function Products() {
 
   return (
     <div className="pt-40 pb-20 bg-white min-h-screen">
-      <SEO 
-        title="Our Collection | Poona Enterprises" 
+      <SEO
+        title="Our Collection | Poona Enterprises"
         description="Browse our wide range of high-quality electronics and furniture available for rent and sale in Pune."
       />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-7xl font-serif font-bold tracking-tight mb-6">
@@ -83,8 +83,8 @@ export default function Products() {
                 onClick={() => setCategoryFilter(cat as any)}
                 className={cn(
                   "px-6 py-2 rounded text-[10px] font-bold uppercase tracking-widest transition-all",
-                  categoryFilter === cat 
-                    ? "bg-white text-slate-900 shadow-sm" 
+                  categoryFilter === cat
+                    ? "bg-white text-slate-900 shadow-sm"
                     : "text-slate-400 hover:text-slate-600"
                 )}
               >
@@ -102,8 +102,8 @@ export default function Products() {
                 onClick={() => setTypeFilter(t as any)}
                 className={cn(
                   "px-6 py-2 rounded text-[10px] font-bold uppercase tracking-widest transition-all",
-                  typeFilter === t 
-                    ? "bg-white text-slate-900 shadow-sm" 
+                  typeFilter === t
+                    ? "bg-white text-slate-900 shadow-sm"
                     : "text-slate-400 hover:text-slate-600"
                 )}
               >
@@ -122,7 +122,7 @@ export default function Products() {
               <ProductCard key={product.id} product={product} />
             ))
           ) : (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="col-span-full py-32 text-center border-t border-slate-100"
@@ -132,7 +132,7 @@ export default function Products() {
                 <div>
                   <h3 className="text-2xl font-serif font-bold mb-2 text-slate-900">No items found</h3>
                   <p className="text-slate-500 mb-8">Try adjusting your filters to find what you're looking for.</p>
-                  <button 
+                  <button
                     onClick={() => { setCategoryFilter('all'); setTypeFilter('rent'); }}
                     className="text-primary font-bold uppercase tracking-widest text-[10px] hover:underline"
                   >

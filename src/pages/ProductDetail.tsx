@@ -11,11 +11,8 @@ import {
   Clock, 
   Share2, 
   Star, 
-  Info,
   Calendar,
-  Sparkles,
-  RefreshCw,
-  AlertCircle
+  RefreshCw
 } from 'lucide-react';
 import type { Product } from '../components/ui/ProductCard';
 
