@@ -154,6 +154,8 @@ Category: ${product.category}
 Selected Tenure: ${selectedTenure} Month(s)
 Monthly Rate: ₹${currentMonthlyPrice}/mo
 ${formattedSpecs ? `\nSpecifications:\n${formattedSpecs}` : ''}
+Product Image: ${product.imageUrl}
+Product Page: ${window.location.href}
 
 Please let me know the availability and ordering process.`
     : `Hi Poona Enterprises, I am interested in buying:
@@ -161,6 +163,8 @@ Product: ${product.title}
 Category: ${product.category}
 Price: ₹${product.price}
 ${formattedSpecs ? `\nSpecifications:\n${formattedSpecs}` : ''}
+Product Image: ${product.imageUrl}
+Product Page: ${window.location.href}
 
 Please share details about availability and delivery.`;
 
