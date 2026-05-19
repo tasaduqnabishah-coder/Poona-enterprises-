@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { cn } from '../../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getTelLink, BUSINESS_PHONE_DISPLAY } from '../../lib/config';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -131,7 +132,7 @@ export default function Navbar() {
               
               <div className="mt-16 pt-8 border-t border-slate-50">
                 <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Quick Contact</p>
-                <a href="tel:+917875294904" className="block text-xl font-serif font-bold text-slate-900 mb-2">+91 78752 94904</a>
+                <a href={getTelLink()} className="block text-xl font-serif font-bold text-slate-900 mb-2">{BUSINESS_PHONE_DISPLAY}</a>
                 <p className="text-sm text-slate-500 italic font-light">Wadgaon Sheri, Pune</p>
               </div>
             </div>

@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import SEO from '../components/layout/SEO';
+import { getWhatsAppLink } from '../lib/config';
 
 const services = [
   {
@@ -91,7 +92,7 @@ export default function Services() {
                     ))}
                   </div>
                   <a
-                    href={`https://wa.me/917875294904?text=${encodeURIComponent(`Hi, I'm interested in your ${service.title} service.`)}`}
+                    href={getWhatsAppLink(`Hi, I'm interested in your ${service.title} service.`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-4 bg-slate-900 text-white px-10 py-5 rounded-xl font-bold uppercase tracking-widest text-[10px] transition-all hover:bg-primary shadow-xl shadow-slate-200"

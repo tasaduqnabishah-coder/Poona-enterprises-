@@ -19,6 +19,7 @@ import { useEffect, useState } from 'react';
 import { client } from '../sanity/client';
 import SEO from '../components/layout/SEO';
 import { ProductSkeleton } from '../components/ui/Skeleton';
+import { getWhatsAppLink, getTelLink } from '../lib/config';
 
 const heroImage = "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&q=80&w=2000";
 
@@ -302,10 +303,10 @@ export default function Home() {
           <div className="bg-white p-8 md:p-20 rounded-[2rem] md:rounded-[3rem] shadow-xl border border-slate-100">
             <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mb-8 italic">Your space, our commitment<span className="text-primary">.</span></h2>
             <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-              <a href="tel:+917875294904" className="flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 md:px-10 md:py-5 rounded-lg font-bold uppercase tracking-widest text-[9px] hover:bg-slate-800 transition-all">
+              <a href={getTelLink()} className="flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 md:px-10 md:py-5 rounded-lg font-bold uppercase tracking-widest text-[9px] hover:bg-slate-800 transition-all">
                 <Phone size={14} /> Call Now
               </a>
-              <a href="https://wa.me/917875294904" className="flex items-center justify-center gap-3 bg-primary text-white px-8 py-4 md:px-10 md:py-5 rounded-lg font-bold uppercase tracking-widest text-[9px] hover:bg-primary-dark transition-all">
+              <a href={getWhatsAppLink("Hi Poona Enterprises, I am visiting your website and would like to get in touch.")} className="flex items-center justify-center gap-3 bg-primary text-white px-8 py-4 md:px-10 md:py-5 rounded-lg font-bold uppercase tracking-widest text-[9px] hover:bg-primary-dark transition-all">
                 <MessageSquare size={14} /> WhatsApp Us
               </a>
             </div>

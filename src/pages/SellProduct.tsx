@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import SEO from '../components/layout/SEO';
 import { ArrowRight, CheckCircle2, RefreshCw } from 'lucide-react';
+import { getWhatsAppLink } from '../lib/config';
 
 export default function SellProduct() {
   const [formData, setFormData] = useState({
@@ -14,9 +15,7 @@ export default function SellProduct() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const message = `Hi, I want to sell my ${formData.productName}. My name is ${formData.name}, contact: ${formData.phone}.\n\nDetails: ${formData.description}`;
-    const phoneNumber = "917875294904";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(getWhatsAppLink(message), '_blank');
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

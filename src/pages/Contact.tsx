@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Clock, Mail, MessageSquare, ArrowRight } from 'lucide-react';
 import SEO from '../components/layout/SEO';
 import { cn } from '../lib/utils';
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_EMAIL, getWhatsAppLink } from '../lib/config';
 
 export default function Contact() {
   const contactDetails = [
@@ -13,7 +14,7 @@ export default function Contact() {
     },
     {
       title: "Direct Line",
-      info: "+91 78752 94904",
+      info: BUSINESS_PHONE_DISPLAY,
       icon: Phone,
       color: "bg-slate-50 text-slate-900"
     },
@@ -25,7 +26,7 @@ export default function Contact() {
     },
     {
       title: "Email Inquiries",
-      info: "tasaduqnabishah@gmail.com",
+      info: BUSINESS_EMAIL,
       icon: Mail,
       color: "bg-slate-50 text-slate-900"
     }
@@ -72,14 +73,14 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              href="https://wa.me/917875294904"
+              href={getWhatsAppLink("Hi, I would like to speak with an expert regarding your services.")}
               target="_blank"
               rel="noopener noreferrer"
               className="col-span-full bg-slate-900 hover:bg-primary text-white p-12 rounded-[2.5rem] flex items-center justify-between group transition-all duration-500 shadow-2xl shadow-slate-200"
             >
               <div className="flex items-center gap-8">
                 <div className="bg-white/10 p-5 rounded-2xl text-primary">
-                  <MessageSquare size={32} />s   
+                  <MessageSquare size={32} />
                 </div>
                 <div>
                   <h3 className="text-2xl font-serif font-bold italic">Chat with an Expert</h3>

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { client } from '../sanity/client';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../components/layout/SEO';
+import { getWhatsAppLink } from '../lib/config';
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -163,8 +164,7 @@ ${formattedSpecs ? `\nSpecifications:\n${formattedSpecs}` : ''}
 
 Please share details about availability and delivery.`;
 
-  const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "917875294904";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = getWhatsAppLink(whatsappMessage);
 
   // Splitting Description by Newlines for bullets ("About this item")
   const descBullets = product.description.split('\n').filter(line => line.trim().length > 0);

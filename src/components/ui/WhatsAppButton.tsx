@@ -1,13 +1,14 @@
 import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+import { getWhatsAppLink } from '../../lib/config';
+
 interface WhatsAppButtonProps {
   message?: string;
 }
 
 export default function WhatsAppButton({ message = "Hi, I would like to know more about your services." }: WhatsAppButtonProps) {
-  const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER || "917875294904";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = getWhatsAppLink(message);
 
   return (
     <motion.a
