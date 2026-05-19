@@ -5,6 +5,7 @@ export default defineCliConfig({
     projectId: 'i22von0a',
     dataset: 'production'
   },
+  studioHost: 'poona-enterprises',
   deployment: {
     /**
      * Enable auto-updates for studios.
