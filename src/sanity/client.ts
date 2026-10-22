@@ -4,7 +4,7 @@ import imageUrlBuilder from '@sanity/image-url';
 export const client = createClient({
   projectId: import.meta.env.VITE_SANITY_PROJECT_ID || 'i22von0a',
   dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
-  useCdn: true, // set to `false` to bypass the edge cache
+  useCdn: false, // set to `false` to bypass the edge cache and reflect new products immediately
   apiVersion: '2024-05-04', // use current date (YYYY-MM-DD) to target the latest API version
 });
 

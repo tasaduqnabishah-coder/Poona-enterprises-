@@ -13,7 +13,7 @@ export default function Products() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [categoryFilter, setCategoryFilter] = useState<'all' | 'electronics' | 'furniture'>('all');
-  const [typeFilter, setTypeFilter] = useState<'all' | 'rent' | 'sale'>('rent');
+  const [typeFilter, setTypeFilter] = useState<'all' | 'rent' | 'sale'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'default' | 'priceLowToHigh' | 'priceHighToLow'>('default');
 
@@ -28,7 +28,7 @@ export default function Products() {
           if (typeFilter !== 'all') conditions.push(`type == "${typeFilter}"`);
           query = `*[_type == "product" && ${conditions.join(' && ')}]`;
         }
-        query += ` | order(createdAt desc) {
+        query += ` | order(_createdAt desc) {
           _id,
           title,
           price,

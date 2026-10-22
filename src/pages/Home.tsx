@@ -55,7 +55,7 @@ export default function Home() {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const data = await client.fetch(`*[_type == "product"][0...4]{
+        const data = await client.fetch(`*[_type == "product"] | order(_createdAt desc)[0...4]{
           "id": _id,
           title,
           price,
