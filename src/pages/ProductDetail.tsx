@@ -133,7 +133,8 @@ export default function ProductDetail() {
     }
   };
 
-  const currentMonthlyPrice = getTenurePrice(selectedTenure);
+  const totalContractRent = getTenurePrice(selectedTenure);
+  const currentMonthlyPrice = Math.round(totalContractRent / selectedTenure);
 
   // Share handler
   const handleShare = () => {
@@ -152,7 +153,7 @@ export default function ProductDetail() {
 Product: ${product.title}
 Category: ${product.category}
 Selected Tenure: ${selectedTenure} Month(s)
-Monthly Rate: ₹${currentMonthlyPrice}/mo
+Total Rent: ₹${totalContractRent} (₹${currentMonthlyPrice}/mo)
 ${formattedSpecs ? `\nSpecifications:\n${formattedSpecs}` : ''}
 Product Image: ${product.imageUrl}
 Product Page: ${window.location.href}
@@ -331,7 +332,7 @@ Please share details about availability and delivery.`;
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Current Selected Rate</p>
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Effective Monthly Rate</p>
                       <div className="flex items-baseline gap-1.5">
                         <span className="text-3xl font-extrabold text-slate-900">₹{currentMonthlyPrice}</span>
                         <span className="text-sm text-slate-500 font-medium">/ month</span>
@@ -339,7 +340,7 @@ Please share details about availability and delivery.`;
                     </div>
                     <div className="bg-primary/5 text-primary border border-primary/10 rounded-xl px-4 py-2 text-right">
                       <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">Total Contract Rent</p>
-                      <p className="text-base font-bold">₹{currentMonthlyPrice * selectedTenure}</p>
+                      <p className="text-base font-bold">₹{totalContractRent}</p>
                     </div>
                   </div>
 
@@ -351,7 +352,9 @@ Please share details about availability and delivery.`;
                   
                   <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-5">
                     {[1, 2, 3, 4, 5, 6].map((months) => {
-                      const hasPrice = getTenurePrice(months) > 0;
+                      const totalPrice = getTenurePrice(months);
+                      const hasPrice = totalPrice > 0;
+                      const monthlyRate = Math.round(totalPrice / months);
                       return (
                         <button
                           key={months}
@@ -364,7 +367,8 @@ Please share details about availability and delivery.`;
                           }`}
                         >
                           <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">{months} Mo</span>
-                          <span className="text-xs font-extrabold text-slate-900 mt-1">₹{getTenurePrice(months)}</span>
+                          <span className="text-xs font-extrabold text-slate-900 mt-1">₹{totalPrice}</span>
+                          <span className="text-[9px] text-slate-500 font-medium">₹{monthlyRate}/mo</span>
                         </button>
                       );
                     })}

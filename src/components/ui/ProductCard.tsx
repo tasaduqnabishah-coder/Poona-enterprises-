@@ -83,31 +83,37 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         {isRent && (
           <div className="mb-4 bg-slate-50 rounded border border-slate-100 p-2">
-            <p className="text-[10px] font-bold text-slate-700 mb-2 uppercase tracking-wider text-center">Monthly Rates</p>
+            <p className="text-[10px] font-bold text-slate-700 mb-2 uppercase tracking-wider text-center">Rental Plans (Total Rent)</p>
             <div className="grid grid-cols-3 gap-2 text-center">
               <div>
                 <p className="text-[8px] text-slate-500">1 Mo</p>
                 <p className="text-xs font-bold text-slate-900">{product.rentalPrices?.oneMonth ? `₹${product.rentalPrices.oneMonth}` : (product.price ? `₹${product.price}` : '-')}</p>
+                {product.rentalPrices?.oneMonth && <p className="text-[8px] text-slate-400">₹{Math.round(product.rentalPrices.oneMonth / 1)}/mo</p>}
               </div>
               <div>
                 <p className="text-[8px] text-slate-500">2 Mo</p>
                 <p className="text-xs font-bold text-slate-900">{product.rentalPrices?.twoMonths ? `₹${product.rentalPrices.twoMonths}` : '-'}</p>
+                {product.rentalPrices?.twoMonths && <p className="text-[8px] text-slate-400">₹{Math.round(product.rentalPrices.twoMonths / 2)}/mo</p>}
               </div>
               <div>
                 <p className="text-[8px] text-slate-500">3 Mo</p>
                 <p className="text-xs font-bold text-slate-900">{product.rentalPrices?.threeMonths ? `₹${product.rentalPrices.threeMonths}` : '-'}</p>
+                {product.rentalPrices?.threeMonths && <p className="text-[8px] text-slate-400">₹{Math.round(product.rentalPrices.threeMonths / 3)}/mo</p>}
               </div>
               <div>
                 <p className="text-[8px] text-slate-500">4 Mo</p>
                 <p className="text-xs font-bold text-slate-900">{product.rentalPrices?.fourMonths ? `₹${product.rentalPrices.fourMonths}` : '-'}</p>
+                {product.rentalPrices?.fourMonths && <p className="text-[8px] text-slate-400">₹{Math.round(product.rentalPrices.fourMonths / 4)}/mo</p>}
               </div>
               <div>
                 <p className="text-[8px] text-slate-500">5 Mo</p>
                 <p className="text-xs font-bold text-slate-900">{product.rentalPrices?.fiveMonths ? `₹${product.rentalPrices.fiveMonths}` : '-'}</p>
+                {product.rentalPrices?.fiveMonths && <p className="text-[8px] text-slate-400">₹{Math.round(product.rentalPrices.fiveMonths / 5)}/mo</p>}
               </div>
               <div>
                 <p className="text-[8px] text-slate-500">6 Mo</p>
                 <p className="text-xs font-bold text-slate-900">{product.rentalPrices?.sixMonths ? `₹${product.rentalPrices.sixMonths}` : '-'}</p>
+                {product.rentalPrices?.sixMonths && <p className="text-[8px] text-slate-400">₹{Math.round(product.rentalPrices.sixMonths / 6)}/mo</p>}
               </div>
             </div>
           </div>

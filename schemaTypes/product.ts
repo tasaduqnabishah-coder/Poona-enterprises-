@@ -24,15 +24,16 @@ export default {
     {
       name: 'rentalPrices',
       type: 'object',
-      title: 'Rental Pricing Breakdown (₹/mo)',
+      title: 'Rental Pricing Breakdown (Total Rent ₹)',
+      description: 'Enter the total rent for each tenure (e.g. ₹600 for 1 Mo, ₹3600 for 6 Mo). The website will automatically compute and show the monthly breakdown.',
       hidden: ({document}: any) => document?.type !== 'rent',
       fields: [
-        { name: 'oneMonth', type: 'number', title: '1 Month' },
-        { name: 'twoMonths', type: 'number', title: '2 Months' },
-        { name: 'threeMonths', type: 'number', title: '3 Months' },
-        { name: 'fourMonths', type: 'number', title: '4 Months' },
-        { name: 'fiveMonths', type: 'number', title: '5 Months' },
-        { name: 'sixMonths', type: 'number', title: '6 Months' },
+        { name: 'oneMonth', type: 'number', title: '1 Month Total Rent (₹)' },
+        { name: 'twoMonths', type: 'number', title: '2 Months Total Rent (₹)' },
+        { name: 'threeMonths', type: 'number', title: '3 Months Total Rent (₹)' },
+        { name: 'fourMonths', type: 'number', title: '4 Months Total Rent (₹)' },
+        { name: 'fiveMonths', type: 'number', title: '5 Months Total Rent (₹)' },
+        { name: 'sixMonths', type: 'number', title: '6 Months Total Rent (₹)' },
       ],
     },
     {
