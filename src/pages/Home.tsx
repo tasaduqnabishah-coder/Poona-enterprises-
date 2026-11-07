@@ -60,6 +60,7 @@ export default function Home() {
           title,
           price,
           rentalPrices,
+          deposit,
           category,
           type,
           "imageUrl": image.asset->url,

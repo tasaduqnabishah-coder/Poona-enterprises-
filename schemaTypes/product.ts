@@ -37,6 +37,13 @@ export default {
       ],
     },
     {
+      name: 'deposit',
+      type: 'number',
+      title: 'Security Deposit (Refundable ₹)',
+      description: 'Refundable security deposit collected at delivery (e.g. ₹1000). Set to 0 or leave blank for zero deposit.',
+      hidden: ({document}: any) => document?.type !== 'rent',
+    },
+    {
       name: 'category',
       type: 'string',
       title: 'Category',

@@ -47,6 +47,7 @@ export default function ProductDetail() {
           title,
           price,
           rentalPrices,
+          deposit,
           category,
           type,
           "imageUrl": image.asset->url,
@@ -62,6 +63,7 @@ export default function ProductDetail() {
             title: data.title,
             price: data.price,
             rentalPrices: data.rentalPrices,
+            deposit: data.deposit,
             category: data.category,
             type: data.type,
             imageUrl: data.imageUrl,
@@ -153,7 +155,7 @@ export default function ProductDetail() {
 Product: ${product.title}
 Category: ${product.category}
 Selected Tenure: ${selectedTenure} Month(s)
-Total Rent: ₹${totalContractRent} (₹${currentMonthlyPrice}/mo)
+Total Rent: ₹${totalContractRent} (₹${currentMonthlyPrice}/mo)${product.deposit !== undefined && product.deposit > 0 ? `\nSecurity Deposit (Refundable): ₹${product.deposit}\nTotal Upfront: ₹${totalContractRent + product.deposit}` : ''}
 ${formattedSpecs ? `\nSpecifications:\n${formattedSpecs}` : ''}
 Product Image: ${product.imageUrl}
 Product Page: ${window.location.href}
@@ -338,9 +340,17 @@ Please share details about availability and delivery.`;
                         <span className="text-sm text-slate-500 font-medium">/ month</span>
                       </div>
                     </div>
-                    <div className="bg-primary/5 text-primary border border-primary/10 rounded-xl px-4 py-2 text-right">
-                      <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">Total Contract Rent</p>
-                      <p className="text-base font-bold">₹{totalContractRent}</p>
+                    <div className="flex items-center gap-2">
+                      {product.deposit !== undefined && product.deposit > 0 && (
+                        <div className="bg-emerald-50 text-emerald-800 border border-emerald-200/80 rounded-xl px-3 py-2 text-right">
+                          <p className="text-[9px] font-bold uppercase tracking-wider text-emerald-600 mb-0.5">Refundable Deposit</p>
+                          <p className="text-base font-bold">₹{product.deposit}</p>
+                        </div>
+                      )}
+                      <div className="bg-primary/5 text-primary border border-primary/10 rounded-xl px-4 py-2 text-right">
+                        <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400 mb-0.5">Total Contract Rent</p>
+                        <p className="text-base font-bold">₹{totalContractRent}</p>
+                      </div>
                     </div>
                   </div>
 
@@ -375,7 +385,7 @@ Please share details about availability and delivery.`;
                   </div>
 
                   {/* Interactive Terms Notice */}
-                  <div className="bg-white rounded-xl p-3 border border-slate-200/80 text-xs text-slate-600 space-y-2">
+                  <div className="bg-white rounded-xl p-3 border border-slate-200/80 text-xs text-slate-600 space-y-2 mb-3">
                     <div className="flex gap-2">
                       <Truck className="w-4 h-4 text-slate-500 flex-shrink-0 mt-0.5" />
                       <div>
@@ -391,6 +401,34 @@ Please share details about availability and delivery.`;
                       </div>
                     </div>
                   </div>
+
+                  {/* Security Deposit & Upfront Cost Breakdown */}
+                  {product.deposit !== undefined && product.deposit > 0 ? (
+                    <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-xl p-3.5 text-xs text-emerald-950">
+                      <div className="flex items-start gap-2.5 mb-2">
+                        <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="font-bold text-emerald-900">Refundable Security Deposit:</span>
+                            <span className="font-extrabold text-emerald-800">₹{product.deposit}</span>
+                            <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold">100% Refundable</span>
+                          </div>
+                          <p className="text-[11px] text-emerald-700 mt-0.5">
+                            Collected at delivery and completely refunded at the end of tenure upon safe return.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="pt-2.5 border-t border-emerald-200/70 flex items-center justify-between font-bold text-slate-900">
+                        <span className="text-xs">Total Upfront Payable (Rent + Deposit):</span>
+                        <span className="text-sm font-extrabold text-primary">₹{totalContractRent + product.deposit}</span>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="bg-emerald-50/50 border border-emerald-200/60 rounded-xl p-3 text-xs text-emerald-800 flex items-center gap-2">
+                      <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                      <span><strong>Zero Security Deposit!</strong> No upfront security deposit required for this product.</span>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

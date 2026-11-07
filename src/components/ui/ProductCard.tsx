@@ -14,6 +14,7 @@ export interface Product {
     fiveMonths?: number;
     sixMonths?: number;
   };
+  deposit?: number;
   category: 'electronics' | 'furniture';
   type: 'rent' | 'sale';
   imageUrl: string;
@@ -120,9 +121,19 @@ export default function ProductCard({ product }: ProductCardProps) {
         )}
 
         {isRent && (
-          <div className="mb-4 bg-slate-50 p-2.5 rounded border border-slate-100">
+          <div className="mb-4 bg-slate-50 p-2.5 rounded border border-slate-100 flex flex-col gap-1">
+            {product.deposit !== undefined && product.deposit > 0 ? (
+              <p className="text-[10px] text-emerald-800 font-semibold flex items-center justify-between">
+                <span>Refundable Deposit:</span>
+                <span className="font-bold">₹{product.deposit}</span>
+              </p>
+            ) : (
+              <p className="text-[10px] text-emerald-700 font-semibold">
+                ✓ Zero Security Deposit
+              </p>
+            )}
             <p className="text-[9px] text-slate-500 leading-relaxed italic">
-              <span className="font-bold text-slate-700 not-italic">Note:</span> Pickup charges apply for short-term. Free return for 6+ months!
+              <span className="font-bold text-slate-700 not-italic">Note:</span> Free return for 6+ months!
             </p>
           </div>
         )}
